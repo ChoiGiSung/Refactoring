@@ -31,7 +31,7 @@ class RentalTest {
         System.out.println(customer1.statement());
         System.out.println(customer2.statement());
 
-        assertThat(customer1.statement()).contains("15.0");
-        assertThat(customer2.statement()).contains("16.0");
+        assertThat(customer1.statement()).contains("15.5");
+        assertThat(customer2.statement()).contains("16.5");
     }
 }

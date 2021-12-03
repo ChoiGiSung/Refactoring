@@ -50,8 +50,8 @@ public class Customer {
         return result;
     }
 
-    private int amountFor(Rental rental) {
-        int thisAmount = 0;
+    private double amountFor(Rental rental) {
+        double thisAmount = 0;
 
         //비디오 종류별 대여료 계산
         switch (rental.getMovie().getPriceCode()) {
