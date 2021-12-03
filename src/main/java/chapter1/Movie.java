@@ -27,12 +27,7 @@ public class Movie {
     }
 
     public int getFrequentRenterPoints(int daysRented) {
-        //기본은 1 포인트
-        //최신물을 이틀 이상 대여하면 보너스 포인트 지급
-        if (getPriceCode() == Movie.NEW_RELEASE && daysRented > 1) {
-            return 2;
-        }
-        return 1;
+        return price.getFrequentRenterPoints(daysRented);
     }
 
     public int getPriceCode() {
