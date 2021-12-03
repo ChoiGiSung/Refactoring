@@ -1,7 +1,10 @@
 package chapter1;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.AssertionsKt;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RentalTest {
@@ -27,5 +30,8 @@ class RentalTest {
 
         System.out.println(customer1.statement());
         System.out.println(customer2.statement());
+
+        assertThat(customer1.statement()).contains("15.0");
+        assertThat(customer2.statement()).contains("16.0");
     }
 }
