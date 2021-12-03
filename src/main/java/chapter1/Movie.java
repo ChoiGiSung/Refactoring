@@ -1,39 +1,29 @@
 package chapter1;
 
+import chapter1.price.ChildrenPrice;
+import chapter1.price.NewReleasePrice;
+import chapter1.price.Price;
+import chapter1.price.RegularPrice;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
+@Setter
 @Getter
-@AllArgsConstructor
 public class Movie {
     public static final int CHILDREN = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
     private String title;
-    private int priceCode;
+    private Price price;
+
+    public Movie(String title, int price) {
+        this.title = title;
+        setPriceCode(price);
+    }
 
     public double getCharge(int daysRented) {
-        double result = 0;
-
-        //비디오 종류별 대여료 계산
-        switch (getPriceCode()) {
-            case Movie.REGULAR:
-                result += 2;
-                if (daysRented > 2) {
-                    result += (daysRented - 2) * 1.5;
-                }
-                break;
-            case Movie.NEW_RELEASE:
-                result += daysRented * 3;
-                break;
-            case Movie.CHILDREN:
-                result += 1.5;
-                if (daysRented > 3) {
-                    result += (daysRented - 3) * 1.5;
-                }
-                break;
-        }
-        return result;
+        return price.getCharge(daysRented);
     }
 
     public int getFrequentRenterPoints(int daysRented) {
@@ -44,4 +34,25 @@ public class Movie {
         }
         return 1;
     }
+
+    public int getPriceCode() {
+        return price.getPriceCode();
+    }
+
+    public void setPriceCode(int code) {
+        switch (code) {
+            case Movie.REGULAR:
+                price = new RegularPrice();
+                break;
+            case Movie.NEW_RELEASE:
+                price = new NewReleasePrice();
+                break;
+            case Movie.CHILDREN:
+                price = new ChildrenPrice();
+                break;
+            default:
+                throw new IllegalArgumentException("잘못된 가격 코드");
+        }
+    }
+
 }
