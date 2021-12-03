@@ -28,7 +28,7 @@ public class Customer {
         String result = this.name + "고객님의 대여 기록\n";
         for (Rental rental : rentals) {
             double thisAmount = 0;
-            thisAmount = amountFor(rental);
+            thisAmount = rental.getCharge();
 
             //적립 포인트를 1 포인트 증가
             frequentRenterPoints++;
@@ -50,27 +50,4 @@ public class Customer {
         return result;
     }
 
-    private double amountFor(Rental rental) {
-        double result = 0;
-
-        //비디오 종류별 대여료 계산
-        switch (rental.getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                result += 2;
-                if (rental.getDaysRented() > 2) {
-                    result += (rental.getDaysRented() - 2) * 1.5;
-                }
-                break;
-            case Movie.NEW_RELEASE:
-                result += rental.getDaysRented() * 3;
-                break;
-            case Movie.CHILDREN:
-                result += 1.5;
-                if (rental.getDaysRented() > 3) {
-                    result += (rental.getDaysRented() - 3) * 1.5;
-                }
-                break;
-        }
-        return result;
-    }
 }
