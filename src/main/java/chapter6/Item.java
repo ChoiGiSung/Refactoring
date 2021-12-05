@@ -9,14 +9,13 @@ public class Item {
     private int itemPrice;
 
     public double getPrice(){
-        int basePrice = getBasePrice();
         double discountFactor;
-        if(basePrice > 1000){
+        if(getBasePrice() > 1000){
             discountFactor = 0.95;
         }else {
             discountFactor = 0.98;
         }
-        return discountFactor * basePrice;
+        return discountFactor * getBasePrice();
     }
 
     private int getBasePrice() {
