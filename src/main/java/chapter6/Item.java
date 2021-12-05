@@ -27,9 +27,14 @@ public class Item {
     }
 
     public double totalPrice(){
-        final double basePrice = getBasePrice();
-        final double quantityDiscount = Math.max(0,quantity - 500) * itemPrice * 0.05;
-        final double shipping = Math.min(quantity * itemPrice * 0.1,100.0);
-        return basePrice - quantityDiscount + shipping;
+        return getBasePrice() - getQuantityDiscount() + shipping();
+    }
+
+    private double shipping() {
+        return Math.min(quantity * itemPrice * 0.1,100.0);
+    }
+
+    private double getQuantityDiscount() {
+        return Math.max(0,quantity - 500) * itemPrice * 0.05;
     }
 }
