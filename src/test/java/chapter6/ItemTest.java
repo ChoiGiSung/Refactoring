@@ -15,4 +15,12 @@ class ItemTest {
         Assertions.assertThat(price).isEqualTo(980.0);
     }
 
+    @Test
+    void testPrice(){
+        Item item = new Item(1,1000);
+        double price = item.totalPrice();
+
+        Assertions.assertThat(price).isEqualTo(1100.0);
+    }
+
 }
