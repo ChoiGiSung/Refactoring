@@ -8,7 +8,13 @@ import lombok.Getter;
 public class Person {
 
     private String name;
-    private String tel;
-    private String telArea;
+    private Telephone telephone;
 
+    public String getTele() {
+        return telephone.getTel();
+    }
+
+    public String getTeleArea() {
+        return telephone.getTelArea();
+    }
 }
