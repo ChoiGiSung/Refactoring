@@ -1,20 +1,25 @@
 package chapter8;
 
-import lombok.Getter;
 
-@Getter
-public class Employee {
+public abstract class Employee {
 
     private int type;
-    private static final int ENGINEER1 = 1;
-    private static final int ENGINEER2 = 2;
-    private static final int ENGINEER3 = 3;
-
-    private Employee(int type) {
-        this.type = type;
-    }
+    public static final int ENGINEER1 = 1;
+    public static final int ENGINEER2 = 2;
+    public static final int ENGINEER3 = 3;
 
     public static Employee create(int type){
-        return new Employee(type);
+        switch (type){
+            case ENGINEER1:
+                return new Engineer1();
+            case ENGINEER2:
+                return new Engineer2();
+            case ENGINEER3:
+                return new Engineer3();
+            default:
+                throw new IllegalArgumentException();
+        }
     }
+
+    abstract int getType();
 }
