@@ -12,16 +12,19 @@ public class Employee {
         return type;
     }
 
-
-    public static Employee createEngineer1(int type){
-        return new Engineer1();
+    public Employee(int type) {
+        this.type = type;
     }
 
-    public static Employee createEngineer2(int type){
-        return new Engineer2();
+    public static Employee createEngineer1(){
+        return new Employee(1);
     }
 
-    public static Employee createEngineer3(int type){
-        return new Engineer3();
+    public static Employee createEngineer2(){
+        return new Employee(2);
+    }
+
+    public static Employee createEngineer3(){
+        return new Employee(3);
     }
 }
