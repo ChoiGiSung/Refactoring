@@ -6,7 +6,7 @@ public class Service {
 
         Employee employee = store.getEmployee();
         SalaryHistory salaryHistory;
-        if(employee == null){
+        if(employee.isNull()){
             salaryHistory = SalaryHistory.basic();
         }else {
             salaryHistory = employee.getSalaryHistory();

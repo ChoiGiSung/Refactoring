@@ -6,7 +6,7 @@ public class Store {
     private Employee employee;
 
     public Employee getEmployee() {
-        return employee;
+        return employee == null ? Employee.newNull() : employee;
     }
 
     public void addEmployee(Employee employee) {
