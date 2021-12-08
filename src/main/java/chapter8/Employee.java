@@ -1,25 +1,27 @@
 package chapter8;
 
 
-public abstract class Employee {
+public class Employee {
 
     private int type;
-    public static final int ENGINEER1 = 1;
-    public static final int ENGINEER2 = 2;
-    public static final int ENGINEER3 = 3;
+//    public static final int ENGINEER1 = 1;
+//    public static final int ENGINEER2 = 2;
+//    public static final int ENGINEER3 = 3;
 
-    public static Employee create(int type){
-        switch (type){
-            case ENGINEER1:
-                return new Engineer1();
-            case ENGINEER2:
-                return new Engineer2();
-            case ENGINEER3:
-                return new Engineer3();
-            default:
-                throw new IllegalArgumentException();
-        }
+    public int getType() {
+        return type;
     }
 
-    abstract int getType();
+
+    public static Employee createEngineer1(int type){
+        return new Engineer1();
+    }
+
+    public static Employee createEngineer2(int type){
+        return new Engineer2();
+    }
+
+    public static Employee createEngineer3(int type){
+        return new Engineer3();
+    }
 }

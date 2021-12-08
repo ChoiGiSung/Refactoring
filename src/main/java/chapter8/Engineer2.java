@@ -3,7 +3,7 @@ package chapter8;
 public class Engineer2 extends Employee{
 
     @Override
-    int getType() {
+    public int getType() {
         return ENGINEER2;
     }
 }
