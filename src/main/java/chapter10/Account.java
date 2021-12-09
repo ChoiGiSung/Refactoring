@@ -13,8 +13,7 @@ public class Account {
 
         for (Entry entry : list) {
             LocalDate chargeDate = entry.getChargeDate();
-            if(chargeDate.isEqual(dateRange.getStart()) || chargeDate.isEqual(dateRange.getEnd())||
-                    (chargeDate.isAfter(dateRange.getStart()) || chargeDate.isBefore(dateRange.getEnd()))){
+            if(dateRange.isCludes(chargeDate)){
                 result += entry.getValue();
             }
         }
