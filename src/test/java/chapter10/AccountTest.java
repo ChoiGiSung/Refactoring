@@ -24,7 +24,8 @@ class AccountTest {
         account.addEntry(entry3);
         account.addEntry(entry4);
 
-        double flowBetween = account.getFlowBetween(LocalDate.now(), LocalDate.now().plusYears(1L));
+        DateRange dateRange = new DateRange(LocalDate.now(), LocalDate.now().plusYears(1L));
+        double flowBetween = account.getFlowBetween(dateRange);
         assertThat(flowBetween).isEqualTo(4.0);
     }
 }

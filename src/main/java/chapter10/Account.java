@@ -8,13 +8,13 @@ public class Account {
 
     private List<Entry> list = new ArrayList<>();
 
-    public double getFlowBetween(LocalDate start, LocalDate end){
+    public double getFlowBetween(DateRange dateRange){
         double result = 0;
 
         for (Entry entry : list) {
             LocalDate chargeDate = entry.getChargeDate();
-            if(chargeDate.isEqual(start) || chargeDate.isEqual(end)||
-                    (chargeDate.isAfter(start) || chargeDate.isBefore(end))){
+            if(chargeDate.isEqual(dateRange.getStart()) || chargeDate.isEqual(dateRange.getEnd())||
+                    (chargeDate.isAfter(dateRange.getStart()) || chargeDate.isBefore(dateRange.getEnd()))){
                 result += entry.getValue();
             }
         }
