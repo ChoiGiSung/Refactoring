@@ -1,4 +1,4 @@
-package chapter11.tempate.price;
+package chapter11.template.price;
 
 public abstract class Price {
     public abstract int getPriceCode();

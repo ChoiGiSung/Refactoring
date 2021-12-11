@@ -1,9 +1,9 @@
-package chapter11.tempate;
+package chapter11.template;
 
-import chapter11.tempate.price.ChildrenPrice;
-import chapter11.tempate.price.NewReleasePrice;
-import chapter11.tempate.price.Price;
-import chapter11.tempate.price.RegularPrice;
+import chapter11.template.price.ChildrenPrice;
+import chapter11.template.price.NewReleasePrice;
+import chapter11.template.price.Price;
+import chapter11.template.price.RegularPrice;
 import lombok.Getter;
 import lombok.Setter;
 

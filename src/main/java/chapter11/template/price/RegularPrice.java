@@ -1,6 +1,6 @@
-package chapter11.tempate.price;
+package chapter11.template.price;
 
-import chapter11.tempate.Movie;
+import chapter11.template.Movie;
 
 public class RegularPrice extends Price {
     @Override

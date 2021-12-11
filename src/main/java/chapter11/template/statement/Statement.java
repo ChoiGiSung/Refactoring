@@ -1,7 +1,7 @@
-package chapter11.tempate.statement;
+package chapter11.template.statement;
 
-import chapter11.tempate.Customer;
-import chapter11.tempate.Rental;
+import chapter11.template.Customer;
+import chapter11.template.Rental;
 
 public abstract class Statement {
 

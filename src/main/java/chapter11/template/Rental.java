@@ -1,4 +1,4 @@
-package chapter11.tempate;
+package chapter11.template;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

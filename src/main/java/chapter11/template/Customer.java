@@ -1,8 +1,7 @@
-package chapter11.tempate;
+package chapter11.template;
 
-import chapter11.tempate.statement.HtmlStatement;
-import chapter11.tempate.statement.Statement;
-import chapter11.tempate.statement.TextStatement;
+import chapter11.template.statement.HtmlStatement;
+import chapter11.template.statement.TextStatement;
 import lombok.Getter;
 
 import java.util.ArrayList;
