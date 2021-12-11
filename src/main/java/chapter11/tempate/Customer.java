@@ -1,5 +1,8 @@
 package chapter11.tempate;
 
+import chapter11.tempate.statement.HtmlStatement;
+import chapter11.tempate.statement.Statement;
+import chapter11.tempate.statement.TextStatement;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -20,39 +23,14 @@ public class Customer {
     }
 
     public String statement() {
-
-        String result = this.name + "고객님의 대여 기록\n";
-        for (Rental rental : rentals) {
-
-            //이번에 대여하는 비디오 정보와 대여료를 출력
-            result += "\t" + rental.getMovie().getTitle() + "\n" + rental.getCharge() + "\n";
-
-            //현재까지 누적된 총 대여료
-        }
-
-        //푸터 행 추가
-        result += "누적 대여료 " + getTotalCharge() + "\n";
-        result += "적립 포인트 " + getTotalFrequentRenterPoints() + "\n";
-        return result;
+        return new TextStatement().value(this);
     }
 
     public String htmlStatement(){
-        String result = "<H1><EN>"+this.name + "고객님의 대여 기록" +"</EM></H1><P>\n";
-        for (Rental rental : rentals) {
-
-            //이번에 대여하는 비디오 정보와 대여료를 출력
-            result += rental.getMovie().getTitle() + "\n" + rental.getCharge() + "<BR>\n";
-
-            //현재까지 누적된 총 대여료
-        }
-
-        //푸터 행 추가
-        result += "<P>누적 대여료 :<EM>" + getTotalCharge() + "</EM><P>\n";
-        result += "적립 포인트 :<EM>" + getTotalFrequentRenterPoints() + "</EM><P>\n";
-        return result;
+        return new HtmlStatement().value(this);
     }
 
-    private double getTotalCharge(){
+    public double getTotalCharge(){
         double result = 0;
         for (Rental rental : rentals) {
             result += rental.getCharge();
@@ -60,7 +38,7 @@ public class Customer {
         return result;
     }
 
-    private int getTotalFrequentRenterPoints(){
+    public int getTotalFrequentRenterPoints(){
         int result = 0;
         for (Rental rental : rentals) {
             result += rental.getFrequentRenterPoints();
