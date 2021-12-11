@@ -11,7 +11,7 @@ public class TextStatement extends Statement{
     public String value(Customer customer) {
         List<Rental> rentals = customer.getRentals();
 
-        String result = customer.getName() + "고객님의 대여 기록\n";
+        String result = headerString(customer);
         for (Rental rental : rentals) {
 
             //이번에 대여하는 비디오 정보와 대여료를 출력
@@ -24,5 +24,10 @@ public class TextStatement extends Statement{
         result += "누적 대여료 " + customer.getTotalCharge() + "\n";
         result += "적립 포인트 " + customer.getTotalFrequentRenterPoints() + "\n";
         return result;
+    }
+
+    @Override
+    public String headerString(Customer customer) {
+        return customer.getName() + "고객님의 대여 기록\n";
     }
 }
