@@ -9,7 +9,7 @@ public class RegularCustomer extends Customer{
         addBill(date,chargeAmount);
     }
 
-    private double chargeFor(LocalDate start,LocalDate end){
+    public double chargeFor(LocalDate start,LocalDate end){
         return 0.0;
     }
 }
